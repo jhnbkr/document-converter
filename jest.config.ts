@@ -12,6 +12,11 @@ const config: Config = {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
 
+  moduleNameMapper: {
+    '^@common/(.*)$': '<rootDir>/src/common/$1',
+    '^@document/(.*)$': '<rootDir>/src/document/$1',
+  },
+
   collectCoverageFrom: [
     'src/**/*.{ts,js}',
     '!src/**/*.spec.ts', // Exclude test files from coverage

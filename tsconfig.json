@@ -5,6 +5,10 @@
     "outDir": "./dist",
     "strict": true,
     "baseUrl": "src",
+    "paths": {
+      "@common/*": ["common/*"],
+      "@document/*": ["document/*"]
+    },
     "declaration": true,
     "sourceMap": true,
     "incremental": true,

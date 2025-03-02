@@ -11,5 +11,9 @@
     "^.+\\.(t|j)s$": "ts-jest"
   },
   "forceExit": true,
-  "detectOpenHandles": true
+  "detectOpenHandles": true,
+  "moduleNameMapper": {
+    "^@common/(.*)$": "<rootDir>/../src/common/$1",
+    "^@document/(.*)$": "<rootDir>/../src/document/$1"
+  }
 }
