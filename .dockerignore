@@ -1,0 +1,46 @@
+# Dependencies
+node_modules
+
+# Build
+dist
+
+# Logs
+*.log
+npm-debug.log*
+
+# Tests
+coverage
+
+# Environment variables
+.env
+.env.*
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Version control
+.git
+.github
+
+# Testing
+test
+**/*.spec.ts
+jest.config.ts
+
+# Editor files
+.vscode
+.idea
+
+# Misc
+.dockerignore
+.gitignore
+README.md
