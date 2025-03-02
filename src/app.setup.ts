@@ -3,6 +3,8 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import * as bodyParser from 'body-parser';
 
+import { DOCUMENT_CONTENT_TYPE } from '@document/types';
+
 /**
  * Configures the NestJS application with common middleware and settings
  *
@@ -27,4 +29,12 @@ export function configureApp(app: NestExpressApplication): void {
   });
 
   app.use(bodyParser.json());
+  app.use(
+    bodyParser.text({
+      type: [
+        DOCUMENT_CONTENT_TYPE.APPLICATION_EDI_X12,
+        DOCUMENT_CONTENT_TYPE.APPLICATION_XML,
+      ],
+    }),
+  );
 }
