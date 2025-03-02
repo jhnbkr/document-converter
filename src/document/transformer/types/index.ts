@@ -1,0 +1,5 @@
+export {
+  DEFAULT_DOCUMENT_TRANSFORMER_OPTIONS,
+  DEFAULT_ELEMENT_SEPARATOR,
+  DEFAULT_SEGMENT_SEPARATOR,
+} from './document-transformer.types';
