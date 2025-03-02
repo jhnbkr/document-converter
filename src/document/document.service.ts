@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
 import { DocumentError } from './errors';
 import {
@@ -14,7 +14,6 @@ import { DOCUMENT_CONTENT_TYPE, DocumentContentType } from './types';
 
 @Injectable()
 export class DocumentService {
-  private readonly logger = new Logger(DocumentService.name);
   private readonly transformers: Record<
     DocumentContentType,
     DocumentTransformer
@@ -46,9 +45,6 @@ export class DocumentService {
     toContentType: DocumentContentType,
     options: DocumentTransformerOptions,
   ): string {
-    this.logger.log(
-      `Converting document from ${fromContentType} to ${toContentType}`,
-    );
     const fromTransformer = this.getTransformer(fromContentType);
     const document = fromTransformer.parse(content, options);
 
