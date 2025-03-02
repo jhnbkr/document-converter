@@ -2,6 +2,7 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
+import { initSentry } from './app.instrument';
 import { AppModule } from './app.module';
 import { configureApp } from './app.setup';
 
@@ -9,6 +10,7 @@ const logger = new Logger('Application');
 
 async function bootstrap() {
   const environment = process.env.NODE_ENV ?? 'development';
+  initSentry(environment);
 
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     logger: ['error', 'warn', 'log', 'debug'],

@@ -20,6 +20,7 @@ const config: Config = {
   collectCoverageFrom: [
     'src/**/*.{ts,js}',
     '!src/**/*.spec.ts', // Exclude test files from coverage
+    '!src/app.instrument.ts', // Exclude app instrument
     '!src/app.setup.ts', // Exclude app setup
     '!src/main.ts', // Exclude NestJS bootstrap
     '!src/**/*.module.ts', // Exclude module definitions
