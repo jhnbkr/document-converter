@@ -5,7 +5,12 @@ import {
   DocumentTransformer,
   DocumentTransformerOptions,
 } from './transformer/interfaces';
-import { DocumentContentType } from './types';
+import {
+  JsonDocumentTransformer,
+  X12DocumentTransformer,
+  XmlDocumentTransformer,
+} from './transformer/providers';
+import { DOCUMENT_CONTENT_TYPE, DocumentContentType } from './types';
 
 @Injectable()
 export class DocumentService {
@@ -15,9 +20,16 @@ export class DocumentService {
     DocumentTransformer
   >;
 
-  constructor() {
-    // TODO: Implement transformers
-    this.transformers = {} as never;
+  constructor(
+    private readonly jsonTransformer: JsonDocumentTransformer,
+    private readonly x12Transformer: X12DocumentTransformer,
+    private readonly xmlTransformer: XmlDocumentTransformer,
+  ) {
+    this.transformers = {
+      [DOCUMENT_CONTENT_TYPE.APPLICATION_JSON]: this.jsonTransformer,
+      [DOCUMENT_CONTENT_TYPE.APPLICATION_EDI_X12]: this.x12Transformer,
+      [DOCUMENT_CONTENT_TYPE.APPLICATION_XML]: this.xmlTransformer,
+    };
   }
 
   public getTransformer(contentType: DocumentContentType): DocumentTransformer {
