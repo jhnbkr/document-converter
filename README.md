@@ -23,7 +23,7 @@ A simple API for converting documents between different formats.
 
 ```bash
 # Clone the repository
-git clone https://github.com/jhnbrk/document-converter.git
+git clone https://github.com/jhnbkr/document-converter.git
 cd document-converter
 
 # Using nvm
